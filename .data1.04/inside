@@ -1,0 +1,32 @@
+#!/bin/bash
+echo "Starting sBASH Terminal"
+sleep 0.5
+echo "Loading []"
+sleep 0.1
+echo "Loading [][] "
+sleep 0.1
+echo "Loading [][][]"
+sleep 0.1
+echo "Loading [][][]"
+sleep 0.5
+echo "Loading [][][][]"
+sleep 0.1
+echo "Loading [][][][][]"
+sleep 0.1
+echo "Loaded!"
+sleep 0.6
+
+source /root/.data/functionCall
+
+clear
+
+while true
+do
+	inputDs3
+	if (( inputCircle > 1))
+	then
+		source /root/sbin/main.sh
+	fi
+	read commandInput
+	$commandInput
+done

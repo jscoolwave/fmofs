@@ -1,0 +1,43 @@
+#!/bin/bash
+
+source /root/.data/source/functionCall
+
+
+
+scrollLimitDown=5
+
+while true
+do
+	sleepSmall
+	inputDs3
+	inputDs3ToMove
+	#inputDpadToMove
+	clear
+	echo " "
+#	networkStatus
+	echo "             ____________________________________________________________"
+	echo "             [====Menu===================  |||===Terminal================]"
+	echo "             [----->${menuMain[${y1Value[0]}]} = ${y1Value[0]} |||=========]"
+	echo "             [=    ${menuMain[${y1Value[1]}]}"
+	echo "             [=    ${menuMain[${y1Value[2]}]}"
+	echo "             [=    ${menuMain[${y1Value[3]}]}"
+	echo "             [=    ${menuMain[${y1Value[4]}]}"
+	echo "             [=    ${menuMain[${y1Value[5]}]}"
+	echo "             [=    ${menuMain[${y1Value[6]}]}"
+	echo "             [=    ${menuMain[${y1Value[7]}]}"
+	echo "             [=    ${menuMain[${y1Value[8]}]}"
+	echo "             [=    ${menuMain[${y1Value[9]}]}"
+	echo "             [=    ${menuMain[${y1Value[10]}]}"	
+	echo "             [=    ${menuMain[${y1Value[11]}]}"
+	echo "             [=    ${menuMain[${y1Value[12]}]}"
+	echo "             [=    ${menuMain[${y1Value[13]}]}"
+	echo "             [=    ${menuMain[${y1Value[14]}]}"
+	echo "             [=    ${menuMain[${y1Value[15]}]}"
+	echo "             [=    ${menuMain[${y1Value[16]}]}"
+	
+	buttonStatus
+
+	menuMainSelect
+	menuBack
+
+done

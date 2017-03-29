@@ -1,0 +1,113 @@
+#!/bin/bash
+
+clear
+echo "========================="
+echo "Interfae Emulator Functions"
+
+
+
+function inputDs3ToScroll {
+	cat $menuTypeDoc | head -n ${y1Value[10]} | tail -n 10
+}
+#                            
+#Currently this does nothing 
+function menuTransfer {
+	menuObject[${y1Value[0]}]=${menuMain[0]}
+	menuObject[${y1Value[1]}]=${menuMain[1]}
+	menuObject[${y1Value[2]}]=${menuMain[2]}
+	menuObject[${y1Value[3]}]=${menuMain[3]}
+	menuObject[${y1Value[4]}]=${menuMain[4]}
+	menuObject[${y1Value[5]}]=${menuMain[5]}
+	menuObject[${y1Value[6]}]=${menuMain[6]}
+					
+
+}
+
+function sleepSmall {
+	sleep 0.01
+}
+
+#menuFunctions for each menu
+
+function menuMainSelect {
+	if (( $inputCross > 1 ))
+	then
+		${menuMainSource[${y1Value[0]}]}
+	fi
+}
+
+function menuAttackSelect {
+	if (( $inputCross > 1 ))
+	then
+		${menuMainAttackSource[${y1Value[0]}]}
+	fi
+}
+
+function menuMonSelect {
+	if (( $inputCross > 1 ))
+	then
+		${menuMainMonSource[${y1Value[0]}]}
+	fi
+}
+
+function menuBoxSelect {
+	if (( $inputCross > 1 ))
+	then
+		${menuMainBoxSource[${y1Value[0]}]}
+	fi
+}
+
+function menuIntSelect {
+	if (( $inputCross > 1 ))
+	then
+		${menuMainIntSource[${y1Value[0]}]}
+	fi
+}
+
+function menuConfigSelect {
+if (( $inputCross > 1 ))
+then
+	${menuConfigSource[${y1Value[0]}]}
+fi
+}
+
+
+
+#returns to main menu on circle press
+function menuBack {
+	if (( $inputCircle > 1 ))
+	then
+		/usr/sbin/main
+	fi
+}
+
+
+function buttonStatus {
+	echo "(1yValue- ${y1Value[0]}"
+	echo "(Circle - $inputCircle"
+	echo "(  X    - $inputCross"
+}
+
+function networkStatus {
+	networkWlanStatus="$(iwconfig wlan0 | head -n 7 | tail -n 1 | cut -c 24-28)"
+	networkWlanName="$(iwconfig wlan0 2> /dev/null | awk -F\" '{print $2}' | head -n 1)"
+	networkWlanDefault="$(ip route | grep wlan0 | cut -d" " -f3 | head -n 1)"
+	networkLanStatus="$(nmcli | grep eth0 | head -n 1 | cut -d" " -f2)"
+	networkLanName="$(ifconfig | grep ether | head -n 1 | tr -d " " | cut -c 6-22)"
+	networkLanDefault="$(ip route | grep eth0 | cut -d" " -f3 | head -n 1)"
+	echo " "
+	echo " "
+	echo "      WLan0 status - $networkWlanStatus     |||  BSSID -  $networkWlanName  |||  Default GW - $networkWlanDefault"
+	echo "      Lan0 status - $networkLanStatus  |||  MAC  -  $networkLanName  |||  Default GW- $networkLanDefault"
+}
+
+function importController {
+	echo "Loading"
+	controller=0
+	controller="$(ps aux | grep xbox > /root/.data/source/xbox && cat /root/.data/source/xbox |  grep xboxdrv | cut -c 10-14 | tr -d " ")"
+	
+	if ((controller < 1 ))
+	then
+		exterm -e xboxdrv --detach-kernel-driver --led 2 > /root/.data/ds3
+	fi
+}

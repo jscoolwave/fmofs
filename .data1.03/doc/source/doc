@@ -1,0 +1,59 @@
+#!/bin/bash
+
+inputDs3
+InputDs3ToMove
+sleep 0.2
+
+
+#source /root/.data/source/funcInput
+#source /root/.data/source/funcEmuterm
+#source /root/.data/source/funcVar
+source /root/.data/source/allFunc
+
+scrollLimitDown=5
+#networkStatusCheck
+#controller=0
+#if (( $controller < 1 ))
+#then
+#	importController
+#fi
+
+menuName="Documents Menu"
+
+while true
+do
+	inputDs3
+	inputDs3ToMove
+	sleepSmall
+	clear
+	echo " "
+	networkStatus
+	echo " "
+	echo "  PRESS TRIANGLE TO READ    "
+	echo "  TEXT SELECTED - $readText " 
+	echo "             ____________________________________________________________"
+	echo "  MainMenu-  [====$menuName================  |||===Terminal================]"
+	echo "             [---${y1Value[0]}-->${menuDoc[${y1Value[0]}]} = ${y1Value[0]} "
+	echo "             [=  ${y1Value[1]}   ${menuDoc[${y1Value[1]}]}"
+	echo "             [=  ${y1Value[2]}   ${menuDoc[${y1Value[2]}]}"
+	echo "             [=  ${y1Value[3]}   ${menuDoc[${y1Value[3]}]}"
+	echo "             [=  ${y1Value[4]}   ${menuDoc[${y1Value[4]}]}"
+	echo "             [=  ${y1Value[5]}   ${menuDoc[${y1Value[5]}]}"
+	echo "             [=  ${y1Value[6]}   ${menuDoc[${y1Value[6]}]}"
+	echo "             [=  ${y1Value[7]}   ${menuDoc[${y1Value[7]}]}"
+	echo "             [=  ${y1Value[8]}   ${menuDoc[${y1Value[8]}]}"
+	echo "             [=  ${y1Value[9]}   ${menuDoc[${y1Value[9]}]}"
+	echo "             [=  ${y1Value[10]}   ${menuDoc[${y1Value[10]}]}"	
+	echo "             [=  ${y1Value[11]}   ${menuDoc[${y1Value[11]}]}"
+	echo "             [=  ${y1Value[12]}   ${menuDoc[${y1Value[12]}]}"
+	echo "             [=  ${y1Value[13]}   ${menuDoc[${y1Value[13]}]}"
+	echo "             [=  ${y1Value[14]}   ${menuDoc[${y1Value[14]}]}"
+	echo "             [=  ${y1Value[15]}   ${menuDoc[${y1Value[15]}]}"
+	echo "             [=  ${y1Value[16]}   ${menuDoc[${y1Value[16]}]}"
+	
+	buttonStatus
+
+	menuDocSelect
+	menuReadSelect
+	menuBack
+done

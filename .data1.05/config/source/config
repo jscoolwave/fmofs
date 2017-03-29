@@ -1,0 +1,48 @@
+#!/bin/bash
+
+
+source /root/.data/source/allFunc
+scrollLimitDown=5
+networkStatusCheck
+#controller=0
+#if (( $controller < 1 ))
+#then
+#	importController
+#fi
+
+$menuName="Menu Configuration"
+
+while true
+do
+	inputDs3
+	inputDs3ToMove
+	sleepSmall
+	clear
+	echo " "
+	networkStatus
+	echo " "
+	echo "             ____________________________________________________________"
+	echo "      Menu - [====$menuName============  |||===Terminal================]"
+	echo "             [---${y1Value[0]}-->${menuConfig[${y1Value[0]}]} = ${y1Value[0]} "
+	echo "             [=  ${y1Value[1]}   ${menuConfig[${y1Value[1]}]}"
+	echo "             [=  ${y1Value[2]}   ${menuConfig[${y1Value[2]}]}"
+	echo "             [=  ${y1Value[3]}   ${menuConfig[${y1Value[3]}]}"
+	echo "             [=  ${y1Value[4]}   ${menuConfig[${y1Value[4]}]}"
+	echo "             [=  ${y1Value[5]}   ${menuConfig[${y1Value[5]}]}"
+	echo "             [=  ${y1Value[6]}   ${menuConfig[${y1Value[6]}]}"
+	echo "             [=  ${y1Value[7]}   ${menuConfig[${y1Value[7]}]}"
+	echo "             [=  ${y1Value[8]}   ${menuConfig[${y1Value[8]}]}"
+	echo "             [=  ${y1Value[9]}   ${menuConfig[${y1Value[9]}]}"
+	echo "             [=  ${y1Value[10]}   ${menuConfig[${y1Value[10]}]}"	
+	echo "             [=  ${y1Value[11]}   ${menuConfig[${y1Value[11]}]}"
+	echo "             [=  ${y1Value[12]}   ${menuConfig[${y1Value[12]}]}"
+	echo "             [=  ${y1Value[13]}   ${menuConfig[${y1Value[13]}]}"
+	echo "             [=  ${y1Value[14]}   ${menuConfig[${y1Value[14]}]}"
+	echo "             [=  ${y1Value[15]}   ${menuConfig[${y1Value[15]}]}"
+	echo "             [=  ${y1Value[16]}   ${menuConfig[${y1Value[16]}]}"
+	
+	buttonStatus
+
+	menuConfigSelect
+	menuBack
+done

@@ -1,0 +1,172 @@
+#!/bin/bash
+
+clear
+echo "========================="
+echo "Loading mapNspoof"
+
+
+
+#ALLOFTHEFUNCTIONS
+
+function inputDs3 {
+#sticks
+
+inputStickX1="$(tail -n 1 ~/.data/ds3 | cut -c 4-6 | tr -d " ")"
+inputStickY1="$(tail -n 1 ~/.data/ds3 | cut -c 11-14 | tr -d " ")"
+
+inputStickX2="$(tail -n 1 ~/.data/ds3 | cut -c 19-21 | tr -d " ")"
+inputStickY2="$(tail -n 1 ~/.data/ds3 | cut -c 26-29 | tr -d " ")"
+
+#Dpad
+inputDpadUp="$(tail -n 1 ~/.data/ds3 | cut -c 34-37 | tr -d " ")"
+inputDpadDown="$(tail -n 1 ~/.data/ds3 | cut -c 41-43 | tr -d " ")"
+inputDpadLeft="$(tail -n 1 ~/.data/ds3 | cut -c 48-51 | tr -d " ")"
+inputDpadRight="$(tail -n 1 ~/.data/ds3 | cut -c 55-58 | tr -d " ")"
+
+
+#misc
+inputSelect="$(tail -n 1 ~/.data/ds3 | cut -c 67-67 | tr -d " ")"
+inputPs="$(tail -n 1 ~/.data/ds3 | cut -c 72-72 | tr -d " ")"
+inputStart="$(tail -n 1 ~/.data/ds3 | cut -c 80-80 | tr -d " ")"
+
+
+#trigger
+inputLTrigger3="$(tail -n 1 ~/.data/ds3 | cut -c 86-86 | tr -d " ")"
+inputRTriger3="$(tail -n 1 ~/.data/ds3 | cut -c 91-91 | tr -d " ")"
+inputLTrigger1="$(tail -n 1 ~/.data/ds3 | cut -c 124-126 | tr -d " ")"
+inputRTrigger1="$(tail -n 1 ~/.data/ds3 | cut -c 131-133 | tr -d " ")"
+inputLTrigger2="$(tail -n 1 ~/.data/ds3 | cut -c 139-141 | tr -d " ")"
+inputRTrigger2="$(tail -n 1 ~/.data/ds3 | cut -c 146-149 | tr -d " ")"
+
+
+#Buttons
+inputTriangle="$(tail -n 1 ~/.data/ds3 | cut -c 97-100 | tr -d " ")"
+inputCircle="$(tail -n 1 ~/.data/ds3 | cut -c 103-105 | tr -d " ")"
+inputCross="$(tail -n 1 ~/.data/ds3 | cut -c 109-112 | tr -d " ")"
+inputSquare="$(tail -n 1 ~/.data/ds3 | cut -c 115-118 | tr -d " ")"
+}
+
+
+#inputDs3 to Move
+
+function inputDs3ToMove {
+
+	if (( $y1Value < $scrollLimitDown )) #This limits the scroll down
+	then
+
+		if (( $inputStickY1 > 160 ))
+		then
+			((y1Value[0]++))
+			((y1Value[1]++))
+			((y1Value[2]++))
+			((y1Value[3]++))
+			((y1Value[4]++))
+			((y1Value[5]++))
+			((y1Value[6]++))
+			((y1Value[7]++))
+			((y1Value[8]++))
+			((y1Value[9]++))
+			((y1Value[10]++))
+			sleep 0.06
+		fi
+	fi
+
+	if (( $y1Value > $scrollLimitUp )) #This elif allows you to not scroll pass 0
+	then
+		if (( $inputStickY1 < 100 )) #set 0 to 100 for default/renable
+		then
+			((y1Value[0]--))
+			((y1Value[1]--))
+			((y1Value[2]--))
+			((y1Value[3]--))
+			((y1Value[4]--))
+			((y1Value[5]--))
+			((y1Value[6]--))
+			((y1Value[7]--))
+			((y1Value[8]--))
+			((y1Value[9]--))
+			((y1Value[10]--))
+			sleep 0.06
+		fi
+	fi
+
+}
+
+function menuTransfer {
+	menuObject[${y1Value[0]}]=${menuMain[0]}
+	menuObject[${y1Value[1]}]=${menuMain[1]}
+	menuObject[${y1Value[2]}]=${menuMain[2]}
+	menuObject[${y1Value[3]}]=${menuMain[3]}
+	menuObject[${y1Value[4]}]=${menuMain[4]}
+	menuObject[${y1Value[5]}]=${menuMain[5]}
+	menuObject[${y1Value[6]}]=${menuMain[6]}
+					
+
+}
+
+function menuSelect {
+	if (( $inputCross > 1 ))
+	then
+		echo "meayahee"
+		echo "${y1Value[0]}"
+		${menuSelectSource[${y1Value[0]}]}
+	fi
+}
+
+
+
+#Declare Vars
+
+	#declare controller sticks
+	y1Value[0]=0
+	y1Value[1]=1
+	y1Value[2]=2
+	y1Value[3]=3
+	y1Value[4]=4
+	y1Value[5]=5
+	y1Value[6]=6
+	y1Value[7]=7
+	y1Value[8]=8
+	y1Value[9]=9
+	y1Value[10]=10
+
+	x1Value[0]=0
+	x1Value[1]=1
+	x1Value[2]=2
+	x1Value[3]=3
+	x1Value[4]=4
+
+	scrollLimitUp=0
+	scrollLimitDown=5
+
+#declare submenus
+
+	declare -a menuMain=('0)ifconfig' '1)iwconfig' '2)nmcli' '3) OM Terminal')
+	declare -a menuSelectSource=('ifconfig' 'iwconfig' 'nmcli n && nmcli' '/root/.data/inside')
+	declare -a menuObject=('object0' 'object1' 'object2' 'object3' 'object4' 'object5' 'object6' 'object7' 'object8' 'object9' 'object10' 'object11' 'object12' 'object13')
+
+#Menu
+
+while true
+do
+	inputDs3
+	inputDs3ToMove
+	clear
+	echo "____________________________________________________________"
+	echo "[==Interfaces Menu============  |||===Terminal================]"
+	echo "[--> ${menuMain[${y1Value[0]}]} - ${y1Value[0]} |||===========================]"
+	echo "[= ${menuMain[${y1Value[1]}]} =   ||"
+	echo "[= ${menuMain[${y1Value[2]}]} =   ||"
+	echo "[= ${menuMain[${y1Value[3]}]} =   ||"
+	echo "[= ${menuMain[${y1Value[4]}]} =   ||"
+	echo "[= ${menuMain[${y1Value[5]}]} =   ||"
+	echo "[= ${menuMain[${y1Value[6]}]} =   ||"
+	echo "[= ${menuMain[${y1Value[7]}]} =   ||"
+	echo "[= ${menuMain[${y1Value[8]}]} =   ||"
+	echo "[= ${menuMain[${y1Value[9]}]} =   ||"
+	echo "$inputCross"
+	echo "${y1Value[0]}"
+
+	menuSelect
+
+done

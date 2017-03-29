@@ -1,0 +1,41 @@
+#!/bin/bash
+
+#clear all post
+inputDs3
+InputDs3ToMove
+sleepLarge
+
+#source /root/.data/source/funcInput
+#source /root/.data/source/funcEmuterm
+#source /root/.data/source/funcVar
+source /root/.data/source/allFunc
+
+#scrollLimitDown=5
+#networkStatusCheck
+#controller=0
+#if (( $controller < 1 ))
+#then
+#	importController
+#fi
+
+menuName="Menu"
+
+
+
+while true
+do
+	inputDs3
+	inputDs3ToMove
+	sleepSmall
+	topCheck
+	
+	clear
+	echo " "
+	#networkStatus
+	echo " "
+	head -n ${y1Value[15]} /root/.data/mon/toptxt | tail -n 15
+	
+	buttonStatus
+
+	menuBack
+done

@@ -1,0 +1,29 @@
+#!/bin/bash
+source /root/.data/functionCall
+scrollLimitDown=3
+
+while true
+do
+	inputDs3
+	inputDs3ToMove
+	clear
+	echo " "
+	echo " "
+	echo " "
+	echo "             ____________________________________________________________"
+	echo "MainAttack Menu--> [==Attacks Menu=============  |||===Terminal================]"
+	echo "             [--> ${menuMainAttack[${y1Value[0]}]} = ${y1Value[0]} |||===========================]"
+	echo "             [= ${menuMainAttack[${y1Value[1]}]}   ||"
+	echo "             [= ${menuMainAttack[${y1Value[2]}]}   ||"
+	echo "             [= ${menuMainAttack[${y1Value[3]}]}   ||"
+	echo "             [= ${menuMainAttack[${y1Value[4]}]}   ||"
+	echo "             [= ${menuMainAttack[${y1Value[5]}]}   ||"
+	echo "             [= ${menuMainAttack[${y1Value[6]}]}   ||"
+	echo "             [= ${menuMainAttack[${y1Value[7]}]}   ||"
+	echo "             [= ${menuMainAttack[${y1Value[8]}]}   ||"
+	echo "             [= ${menuMainAttack[${y1Value[9]}]}   ||"
+	buttonStatus
+
+	menuAttackSelect
+	menuBack
+done

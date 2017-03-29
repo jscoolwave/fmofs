@@ -1,0 +1,105 @@
+DSNIFF(8)     System Manager's Manual     DSNIFF(8)
+
+NNAAMMEE
+       dsniff - password sniffer
+
+SSYYNNOOPPSSIISS
+       ddssnniiffff [--cc] [--dd] [--mm] [--nn] [--ii _i_n_t_e_r_f_a_c_e |
+       --pp _p_c_a_p_f_i_l_e] [--ss _s_n_a_p_l_e_n] [--ff _s_e_r_v_i_c_e_s] [--tt
+       _t_r_i_g_g_e_r_[_,_._._._]]]  [--rr|--ww _s_a_v_e_f_i_l_e] [_e_x_p_r_e_s_‐
+       _s_i_o_n]
+
+DDEESSCCRRIIPPTTIIOONN
+       ddssnniiffff is a password sniffer  which  handles
+       FTP, Telnet, SMTP, HTTP, POP, poppass, NNTP,
+       IMAP, SNMP, LDAP, Rlogin,  RIP,  OSPF,  PPTP
+       MS-CHAP, NFS, VRRP, YP/NIS, SOCKS, X11, CVS,
+       IRC, AIM, ICQ, Napster, PostgreSQL,  Meeting
+       Maker,  Citrix ICA, Symantec pcAnywhere, NAI
+       Sniffer,  Microsoft  SMB,  Oracle   SQL*Net,
+       Sybase and Microsoft SQL protocols.
+
+       ddssnniiffff  automatically  detects and minimally
+       parses each application protocol, only  sav‐
+       ing  the interesting bits, and uses Berkeley
+       DB as its output file format,  only  logging
+       unique  authentication attempts. Full TCP/IP
+       reassembly is provided by libnids(3).
+
+       I wrote ddssnniiffff with honest intentions  -  to
+       audit my own network, and to demonstrate the
+       insecurity of cleartext  network  protocols.
+       Please do not abuse this software.
+
+OOPPTTIIOONNSS
+       --cc     Perform    half-duplex   TCP   stream
+              reassembly, to handle  asymmetrically
+              routed  traffic  (such  as when using
+              arpspoof(8) to intercept client traf‐
+              fic bound for the local gateway).
+
+       --dd     Enable debugging mode.
+
+       --mm     Enable automatic protocol detection.
+
+       --nn     Do  not resolve IP addresses to host‐
+              names.
+
+       --ii _i_n_t_e_r_f_a_c_e
+              Specify the interface to listen on.
+
+       --pp _p_c_a_p_f_i_l_e
+              Rather than processing  the  contents
+              of  packets observed upon the network
+              process the given PCAP capture file.
+
+       --ss _s_n_a_p_l_e_n
+              Analyze at  most  the  first  _s_n_a_p_l_e_n
+              bytes  of each TCP connection, rather
+              than the default of 1024.
+
+       --ff _s_e_r_v_i_c_e_s
+              Load triggers from a _s_e_r_v_i_c_e_s file.
+
+        --tt _t_r_i_g_g_e_r[,...]
+              Load triggers from a  comma-separated
+              list, specified as _p_o_r_t/_p_r_o_t_o=_s_e_r_v_i_c_e
+              (e.g. 80/tcp=http).
+
+       --rr _s_a_v_e_f_i_l_e
+              Read sniffed sessions from a _s_a_v_e_f_i_l_e
+              created with the --ww option.
+
+       --ww _f_i_l_e
+              Write  sniffed  sessions  to _s_a_v_e_f_i_l_e
+              rather than parsing and printing them
+              out.
+
+       _e_x_p_r_e_s_s_i_o_n
+              Specify  a  tcpdump(8) filter expres‐
+              sion to select traffic to sniff.
+
+       On a hangup signal ddssnniiffff will dump its cur‐
+       rent trigger table to _d_s_n_i_f_f_._s_e_r_v_i_c_e_s.
+
+FFIILLEESS
+       _/_u_s_r_/_s_h_a_r_e_/_d_s_n_i_f_f_/_d_s_n_i_f_f_._s_e_r_v_i_c_e_s
+              Default trigger table
+
+       _/_u_s_r_/_s_h_a_r_e_/_d_s_n_i_f_f_/_d_s_n_i_f_f_._m_a_g_i_c
+              Network protocol magic
+
+SSEEEE AALLSSOO
+       arpspoof(8),     libnids(3),    services(5),
+       magic(5)
+
+AAUUTTHHOORR
+       Dug Song <dugsong@monkey.org>
+
+BBUUGGSS
+       ddssnniiffff's automatic protocol detection fea‐
+       ture is based on the classic file(1) command
+       by Ian Darwin, and shares its historical
+       limitations and bugs.
+
+                                          DSNIFF(8)

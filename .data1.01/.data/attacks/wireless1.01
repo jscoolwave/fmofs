@@ -1,0 +1,10 @@
+#!/bin/bash
+ifconfig
+echo "======================"
+echo "Enter the name of the interface you wish to use for monitering"
+read -a $wlanDevice
+
+airmon-ng check kill
+airmon-ng $wlanDevice
+echo "====================="
+echo "Select the moniter interface

@@ -1,0 +1,56 @@
+#!/bin/bash
+
+inputDs3
+InputDs3ToMove
+sleep 0.2
+
+
+#source /root/.data/source/funcInput
+#source /root/.data/source/funcEmuterm
+#source /root/.data/source/funcVar
+source /root/.data/source/allFunc
+
+#scrollLimitDown=5
+#networkStatusCheck
+#controller=0
+#if (( $controller < 1 ))
+#then
+#	importController
+#fi
+
+menuName=" Moniter Menu"
+
+while true
+do
+	inputDs3
+	inputDs3ToMove
+	sleepSmall
+	clear
+	echo " "
+	networkStatus
+	echo " "
+	echo "             ____________________________________________________________"
+	echo "  MainMenu-  [====$menuName================  |||===Terminal================]"
+	echo "             [---${y1Value[0]}-->${menuMon[${y1Value[0]}]} = ${y1Value[0]} "
+	echo "             [=  ${y1Value[1]}   ${menuMon[${y1Value[1]}]}"
+	echo "             [=  ${y1Value[2]}   ${menuMon[${y1Value[2]}]}"
+	echo "             [=  ${y1Value[3]}   ${menuMon[${y1Value[3]}]}"
+	echo "             [=  ${y1Value[4]}   ${menuMon[${y1Value[4]}]}"
+	echo "             [=  ${y1Value[5]}   ${menuMon[${y1Value[5]}]}"
+	echo "             [=  ${y1Value[6]}   ${menuMon[${y1Value[6]}]}"
+	echo "             [=  ${y1Value[7]}   ${menuMon[${y1Value[7]}]}"
+	echo "             [=  ${y1Value[8]}   ${menuMon[${y1Value[8]}]}"
+	echo "             [=  ${y1Value[9]}   ${menuMon[${y1Value[9]}]}"
+	echo "             [=  ${y1Value[10]}   ${menuMon[${y1Value[10]}]}"	
+	echo "             [=  ${y1Value[11]}   ${menuMon[${y1Value[11]}]}"
+	echo "             [=  ${y1Value[12]}   ${menuMon[${y1Value[12]}]}"
+	echo "             [=  ${y1Value[13]}   ${menuMon[${y1Value[13]}]}"
+	echo "             [=  ${y1Value[14]}   ${menuMon[${y1Value[14]}]}"
+	echo "             [=  ${y1Value[15]}   ${menuMon[${y1Value[15]}]}"
+	echo "             [=  ${y1Value[16]}   ${menuMon[${y1Value[16]}]}"
+	
+	buttonStatus
+
+	menuMonSelect
+	menuBack
+done

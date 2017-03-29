@@ -1,0 +1,11 @@
+#!/bin/bash
+
+lspci > /root/.data/vargrab/pci
+lsblk > /root/.data/vargrab/blk
+lscpu > /root/.data/vargrab/cpu
+lsns > /root/.data/vargrab/lsns
+ip route | grep eth0 | cut -d" " -f3 | head -n 1 > defaultEth0
+ip route | grep wlan0 | cut -d" " -f3 | head -n 1 > defaultWlan0
+
+iwconfig wlan0 | head -n 7 | tail -n 1 | cut -c 24-28 > /root/.data/vargrab/wlanStatus
+
