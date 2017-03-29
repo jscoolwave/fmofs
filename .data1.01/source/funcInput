@@ -1,0 +1,159 @@
+#!/bin/bash
+
+clear
+echo "========================="
+echo "Loading PadFunctions"
+
+
+
+#ALLOFTHEFUNCTIONS
+
+function inputDs3 {
+#sticks
+
+inputStickX1="$(tail -n 1 ~/.data/ds3 | cut -c 4-6 | tr -d " ")"
+inputStickY1="$(tail -n 1 ~/.data/ds3 | cut -c 11-14 | tr -d " ")"
+
+inputStickX2="$(tail -n 1 ~/.data/ds3 | cut -c 19-21 | tr -d " ")"
+inputStickY2="$(tail -n 1 ~/.data/ds3 | cut -c 26-29 | tr -d " ")"
+
+#Dpad
+inputDpadUp="$(tail -n 1 ~/.data/ds3 | cut -c 34-37 | tr -d " ")"
+inputDpadDown="$(tail -n 1 ~/.data/ds3 | cut -c 41-43 | tr -d " ")"
+inputDpadLeft="$(tail -n 1 ~/.data/ds3 | cut -c 48-51 | tr -d " ")"
+inputDpadRight="$(tail -n 1 ~/.data/ds3 | cut -c 55-58 | tr -d " ")"
+
+
+#misc
+inputSelect="$(tail -n 1 ~/.data/ds3 | cut -c 67-67 | tr -d " ")"
+inputPs="$(tail -n 1 ~/.data/ds3 | cut -c 72-72 | tr -d " ")"
+inputStart="$(tail -n 1 ~/.data/ds3 | cut -c 80-80 | tr -d " ")"
+
+
+#trigger
+inputLTrigger3="$(tail -n 1 ~/.data/ds3 | cut -c 86-86 | tr -d " ")"
+inputRTriger3="$(tail -n 1 ~/.data/ds3 | cut -c 91-91 | tr -d " ")"
+inputLTrigger1="$(tail -n 1 ~/.data/ds3 | cut -c 124-126 | tr -d " ")"
+inputRTrigger1="$(tail -n 1 ~/.data/ds3 | cut -c 131-133 | tr -d " ")"
+inputLTrigger2="$(tail -n 1 ~/.data/ds3 | cut -c 139-141 | tr -d " ")"
+inputRTrigger2="$(tail -n 1 ~/.data/ds3 | cut -c 146-149 | tr -d " ")"
+
+
+#Buttons
+inputTriangle="$(tail -n 1 ~/.data/ds3 | cut -c 97-100 | tr -d " ")"
+inputCircle="$(tail -n 1 ~/.data/ds3 | cut -c 103-105 | tr -d " ")"
+inputCross="$(tail -n 1 ~/.data/ds3 | cut -c 109-112 | tr -d " ")"
+inputSquare="$(tail -n 1 ~/.data/ds3 | cut -c 115-118 | tr -d " ")"
+}
+
+
+#inputDs3 to Move
+
+function inputDs3ToMove {
+
+	if (( $y1Value < $scrollLimitDown )) #This limits the scroll down
+	then
+
+		if (( $inputStickY1 > 160 ))
+		then
+			((y1Value[0]++))
+			((y1Value[1]++))
+			((y1Value[2]++))
+			((y1Value[3]++))
+			((y1Value[4]++))
+			((y1Value[5]++))
+			((y1Value[6]++))
+			((y1Value[7]++))
+			((y1Value[8]++))
+			((y1Value[9]++))
+			((y1Value[10]++))
+			((y1Value[11]++))
+			((y1Value[12]++))
+			((y1Value[13]++))
+			((y1Value[14]++))
+			((y1Value[15]++))
+			((y1Value[16]++))
+			((y1Value[17]++))
+			((y1Value[18]++))
+			((y1Value[19]++))
+			((y1Value[20]++))
+			sleep 0.07
+		fi
+	fi
+
+	if (( $y1Value > $scrollLimitUp )) #This elif allows you to not scroll pass 0
+	then
+		if (( $inputStickY1 < 100 )) #set 0 to 100 for default/renable
+		then
+			((y1Value[0]--))
+			((y1Value[1]--))
+			((y1Value[2]--))
+			((y1Value[3]--))
+			((y1Value[4]--))
+			((y1Value[5]--))
+			((y1Value[6]--))
+			((y1Value[7]--))
+			((y1Value[8]--))
+			((y1Value[9]--))
+			((y1Value[10]--))
+			((y1Value[11]--))
+			((y1Value[12]--))
+			((y1Value[13]--))
+			((y1Value[14]--))
+			((y1Value[15]--))
+			((y1Value[16]--))
+			((y1Value[17]--))
+			((y1Value[18]--))
+			((y1Value[19]--))
+			((y1Value[20]--))
+			sleep 0.07
+		fi
+	fi
+
+}
+
+
+#ds3 to dpad
+function inputDpadToMove {
+
+	if (( $y1Value < $scrollLimitDown )) #This limits the scroll down
+	then
+
+		if (( $inputDpadDown > 10 ))
+		then
+			((y1Value[0]++))
+			((y1Value[1]++))
+			((y1Value[2]++))
+			((y1Value[3]++))
+			((y1Value[4]++))
+			((y1Value[5]++))
+			((y1Value[6]++))
+			((y1Value[7]++))
+			((y1Value[8]++))
+			((y1Value[9]++))
+			((y1Value[10]++))
+			sleep 0.07
+		fi
+	fi
+
+	if (( $y1Value > $scrollLimitUp )) #This elif allows you to not scroll pass 0
+	then
+		if (( $inputDpadUp > 10 )) #set 0 to 100 for default/renable
+		then
+			((y1Value[0]--))
+			((y1Value[1]--))
+			((y1Value[2]--))
+			((y1Value[3]--))
+			((y1Value[4]--))
+			((y1Value[5]--))
+			((y1Value[6]--))
+			((y1Value[7]--))
+			((y1Value[8]--))
+			((y1Value[9]--))
+			((y1Value[10]--))
+			sleep 0.07
+		fi
+	fi
+
+}
+

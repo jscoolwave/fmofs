@@ -1,0 +1,67 @@
+#!/bin/bash
+#Declare Vars
+
+	#declare controller sticks
+	y1Value[0]=0
+	y1Value[1]=1
+	y1Value[2]=2
+	y1Value[3]=3
+	y1Value[4]=4
+	y1Value[5]=5
+	y1Value[6]=6
+	y1Value[7]=7
+	y1Value[8]=8
+	y1Value[9]=9
+	y1Value[10]=10
+	y1Value[11]=11
+	y1Value[12]=12
+	y1Value[13]=13
+	y1Value[14]=14
+	y1Value[15]=15
+	y1Value[16]=16
+	y1Value[17]=17
+	y1Value[18]=18
+	y1Value[19]=19
+	y1Value[20]=20
+
+	x1Value[0]=0
+	x1Value[1]=1
+	x1Value[2]=2
+	x1Value[3]=3
+	x1Value[4]=4
+
+	scrollLimitUp=0
+	scrollLimitDown=6
+
+#variable grab declerations
+
+	declare -a varGrab=('varItem0' 'varItem1' 'varItem2' 'varItem3' 'varItem4' 'varItem5')
+
+#menu declarations to use in menu__ and menu__Source
+	declare -a menuSub=(') Documentation' ') OM Terminal' ') Exit')
+	declare -a menuSubSource=('/root/.data/menusub/doc' '/root/.data/menusub/inside' '/root/.data/menusub/exit')
+
+
+	declare -a menuMain=('0)Variable Grabbing' '1)Configuration' '2) Attacks' ') OM Terminal' ') Exit')
+	declare -a menuMainSource=('/root/.data/main/vargrab' '/root/.data/main/config' '/root/.data/main/attacks' '/root/.data/inside' '/root/.data/main/exit')
+
+	declare -a menuVarGrab=('0) Rescan All List' '1) Ip Host')
+	declare -a menuVarGrabSource=('/root/.data/vargrab/rescanlist' '/root/.data/vargrab/hostlist')
+
+	declare -a menuMainAttack=('0) AirSuiteAttack' '1) Arpspoof' '2) Capture Interface')
+	declare -a menuMainAttackSource=('/root/.data/attack/airsuite' '/root/.data/attack/arpspoof' '/root/.data/attack/captureint')
+
+	declare -a menuMainInt=('0)ifconfig' '1)iwconfig' '2)nmcli' '3) OM Terminal')
+	declare -a menuMainIntSource=('ifconfig' 'iwconfig' 'nmcli n && nmcli' '/root/.data/inside')
+
+	declare -a menuMainConfig=('0)interfaces' '1) N/A')
+	declare -a menuMainConfigSource=('/root/.data/config/interfaces/')
+
+	declare -a menuMainMon=('0) top' '1) htop' '2) atop' '3) iftop' '4) iotop' '5) iptraf' '6) nmap')
+	declare -a menuMainMonSource=('top' 'htop' 'atop' 'iftop' 'iotop' 'iptraf' 'root/.data/mon/nmap')
+
+	declare -a menuMainBox=('0) BoxMap' '1) BoxIpTraffic')
+	declare -a menuMainBoxSource=('/root/.data/box/boxmap' '/root/.data/box/boxiptraf')
+	#Useless atm
+	#declare -a menuObject=('object0' 'object1' 'object2' 'object3' 'object4' 'object5' 'object6' 'object7' 'object8' 'object9' 'object10' 'object11' 'object12' 'object13')
+

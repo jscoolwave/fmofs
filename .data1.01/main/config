@@ -1,0 +1,33 @@
+#!/bin/bash
+
+source /root/.data/source/functionCall
+scrollLimitDown=2
+
+while true
+do
+	sleepSmall
+	inputDs3
+	inputDs3ToMove
+	#inputDpadToMove	
+	clear
+	echo " "
+	echo " "
+	echo "             ____________________________________________________________"
+	echo "             [====Menu===================  |||===Terminal================]"
+	echo "             [--> ${menuMainConfig[${y1Value[0]}]} = ${y1Value[0]} |||===========================]"
+	echo "             [= ${menuMainConfig[${y1Value[1]}]}   ||"
+	echo "             [= ${menuMainConfig[${y1Value[2]}]}   ||"
+	echo "             [= ${menuMainConfig[${y1Value[3]}]}   ||"
+	echo "             [= ${menuMainConfig[${y1Value[4]}]}   ||"
+	echo "             [= ${menuMainConfig[${y1Value[5]}]}   ||"
+	echo "             [= ${menuMainConfig[${y1Value[6]}]}   ||"
+	echo "             [= ${menuMainConfig[${y1Value[7]}]}   ||"
+	echo "             [= ${menuMainConfig[${y1Value[8]}]}   ||"
+	echo "             [= ${menuMainConfig[${y1Value[9]}]}   ||"
+	buttonStatus
+
+	menuConfigSelect
+	menuBack
+
+done
+

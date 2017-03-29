@@ -1,0 +1,58 @@
+	y1Value[0]=0
+	y1Value[1]=1
+	y1Value[2]=2
+	y1Value[3]=3
+	y1Value[4]=4
+	y1Value[5]=5
+	y1Value[6]=6
+	y1Value[7]=7
+	y1Value[8]=8
+	y1Value[9]=9
+	y1Value[10]=10
+
+	x1Value[0]=0
+	x1Value[1]=1
+	x1Value[2]=2
+	x1Value[3]=3
+	x1Value[4]=4
+	x1Value[5]=5
+	x1Value[6]=6
+	x1Value[7]=7
+	y1Value[8]=8
+	y1Value[9]=9
+	y1Value[10]=10
+
+#controller stick 2
+	y2Value[0]=0
+	y2Value[1]=1
+	y2Value[2]=2
+	y2Value[3]=3
+	y2Value[4]=4
+	y2Value[5]=5
+	y2Value[6]=6
+	y2Value[7]=7
+	y1Value[8]=8
+	y1Value[9]=9
+	y1Value[10]=10
+
+	x2Value[0]=0
+	x2Value[1]=1
+	x2Value[2]=2
+	x2Value[3]=3
+	x2Value[4]=4
+	x2Value[5]=5
+	x2Value[6]=6
+	x2Value[7]=7
+	y1Value[8]=8
+	y1Value[9]=9
+	y1Value[10]=10
+
+
+#mainMenu Items	
+	mainMenu=('Interfaces' 'Wireless Tools' 'LAN Tools' 'Settings')
+
+#interfacesMenu
+	intMenu[0]="ifconfig"
+	intmenu[1]="iwconfig"
+	intMenu[2]="nmcli"
+
